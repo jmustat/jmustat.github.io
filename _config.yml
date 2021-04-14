@@ -1,5 +1,5 @@
 # Site settings
-title: Jinjian Mu
+title: Jinjian Mu | 牟金键
 SEOTitle: Jinjian Mu | 牟金键
 header-img: img/post-bg-desk.jpg
 email: jinjianmu92@gmail.com
@@ -12,7 +12,7 @@ github_repo: "https://github.com/jmustat/jmustat.github.io.git" # you code repos
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: ""
-sidebar-avatar: /img/avatar-m.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-avatar: /img/avatar-m     # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
