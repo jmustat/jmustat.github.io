@@ -17,11 +17,11 @@
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="{{ site.baseurl }}/">Home</a></li>
-                    <!--{% for page in site.pages %}{% if page.title %}-->
-                    <li><a href="/tutorial.html">Statistics Tutorial</a></li>
-                        <!--<a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>-->
-                    <li><a href="/blog.html">Chinese Blog</a></li>
-                    <!--{% endif %}{% endfor %}-->
+                    {% for page in site.pages %}{% if page.title %}
+                    <li>
+                        <a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+                    </li>
+                    {% endif %}{% endfor %}
                 </ul>
             </div>
         </div>
