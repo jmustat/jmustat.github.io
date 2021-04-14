@@ -30,10 +30,10 @@ permalink: pretty
 paginate_multiple:
   - paginate: 10
     paginate_path: '/blog/page:num/'
-    sub_dir: '/_posts'
+    sub_dir: '/blog'
   - paginate: 10
     paginate_path: '/tutorial/page:num/'
-    sub_dir: '/_tutorials'
+    sub_dir: '/tutorial'
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
 anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
 
