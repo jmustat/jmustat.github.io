@@ -11,23 +11,23 @@ header-img: "img/post-bg-rwd.jpg"
     <option value="1"> 英文 English </option>
 </select> -->
 
-{% for post in site.tutorials %}
+{% for article in site.tutorials %}
 <div class="post-preview">
-    <a href="{{ post.url | prepend: site.baseurl }}">
+    <a href="{{ article.url | prepend: site.baseurl }}">
         <h2 class="post-title">
-            {{ post.title }}
+            {{ article.title }}
         </h2>
-        {% if post.subtitle %}
+        {% if article.subtitle %}
         <h3 class="post-subtitle">
-            {{ post.subtitle }}
+            {{ article.subtitle }}
         </h3>
         {% endif %}
         <div class="post-content-preview">
-            {{ post.content | strip_html | truncate:200 }}
+            {{ article.content | strip_html | truncate:200 }}
         </div>
     </a>
     <p class="post-meta">
-        Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}
+        Posted by {% if article.author %}{{ article.author }}{% else %}{{ site.title }}{% endif %} on {{ article.date | date: "%B %-d, %Y" }}
     </p>
 </div>
 <hr>
