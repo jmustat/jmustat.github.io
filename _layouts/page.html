@@ -83,6 +83,7 @@ layout: default
             ">
                 <!-- Featured Tags -->
                 {% if site.featured-tags %}
+                <!--
                 <section>
                     <hr class="hidden-sm hidden-xs">
                     <h5><a href="{{'/tags/' | prepend: site.baseurl }}">FEATURED TAGS</a></h5>
@@ -96,16 +97,17 @@ layout: default
                         {% endfor %}
                     </div>
                 </section>
+                -->
                 {% endif %}
 
                 <!-- Short About -->
                 <section class="visible-md visible-lg">
-                    <hr><h5><a href="{{'/about/' | prepend: site.baseurl }}">ABOUT ME</a></h5>
+                    <hr><h5><a>ABOUT ME</a></h5>
                     <div class="short-about">
                         {% if site.sidebar-avatar %}
-                            <a href="{{ site.baseurl }}/about">
+                        <!--    <a href="{{ site.baseurl }}/about">
                                 <img src="{{site.sidebar-avatar}}"/>
-                            </a>
+                            </a>-->
                         {% endif %}
                         {% if site.sidebar-about-description %}
                             <p>{{site.sidebar-about-description}}</p>
