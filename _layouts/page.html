@@ -33,7 +33,6 @@ layout: default
                 sidebar-container">
 
                 <!-- Featured Tags -->
-		<!--
                 {% if site.featured-tags %}
                 <section>
                     <h5><a href="{{'/tags/' | prepend: site.baseurl }}">FEATURED TAGS</a></h5>
@@ -48,7 +47,6 @@ layout: default
         			</div>
                 </section>
                 {% endif %}
-		-->
 
                 <!-- Friends Blog -->
                 {% if site.friends %}
@@ -84,7 +82,6 @@ layout: default
             ">
                 <!-- Featured Tags -->
                 {% if site.featured-tags %}
-                <!--
                 <section>
                     <hr class="hidden-sm hidden-xs">
                     <h5><a href="{{'/tags/' | prepend: site.baseurl }}">FEATURED TAGS</a></h5>
@@ -98,7 +95,6 @@ layout: default
                         {% endfor %}
                     </div>
                 </section>
-                -->
                 {% endif %}
 
                 <!-- Short About -->
@@ -106,9 +102,9 @@ layout: default
                     <hr><h5><a>ABOUT ME</a></h5>
                     <div class="short-about">
                         {% if site.sidebar-avatar %}
-                        <!--    <a href="{{ site.baseurl }}/about">
+                            <a href="{{ site.baseurl }}/about">
                                 <img src="{{site.sidebar-avatar}}"/>
-                            </a>-->
+                            </a>
                         {% endif %}
                         {% if site.sidebar-about-description %}
                             <p>{{site.sidebar-about-description}}</p>
