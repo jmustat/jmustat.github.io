@@ -33,6 +33,7 @@ layout: default
                 sidebar-container">
 
                 <!-- Featured Tags -->
+		    <!--
                 {% if site.featured-tags %}
                 <section>
                     <h5><a href="{{'/tags/' | prepend: site.baseurl }}">FEATURED TAGS</a></h5>
@@ -47,6 +48,7 @@ layout: default
         			</div>
                 </section>
                 {% endif %}
+                     -->
 
                 <!-- Friends Blog -->
                 {% if site.friends %}
@@ -81,6 +83,7 @@ layout: default
                 sidebar-container
             ">
                 <!-- Featured Tags -->
+		    <!--
                 {% if site.featured-tags %}
                 <section>
                     <hr class="hidden-sm hidden-xs">
@@ -96,13 +99,14 @@ layout: default
                     </div>
                 </section>
                 {% endif %}
+                     -->
 
                 <!-- Short About -->
                 <section class="visible-md visible-lg">
                     <hr><h5><a>ABOUT ME</a></h5>
                     <div class="short-about">
                         {% if site.sidebar-avatar %}
-                            <a href="{{ site.baseurl }}/about">
+                            <!--<a href="{{ site.baseurl }}/about">-->
                                 <img src="{{site.sidebar-avatar}}"/>
                             </a>
                         {% endif %}
@@ -178,6 +182,27 @@ layout: default
                                     <span class="fa-stack fa-lg">
                                         <i class="fa fa-circle fa-stack-2x"></i>
                                         <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            {% endif %}
+			    {% if site.researchgate_username %}
+                            <li>
+                                <a target="_blank" href="https://www.researchgate.net/profile/{{ site.researchgate_username }}">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-researchgate fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            {% endif %}
+				
+			    {% if site.linkedin_username %}
+                            <li>
+                                <a target="_blank" href="https://www.linkedin.com/in/{{ site.linkedin_username }}">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
                                     </span>
                                 </a>
                             </li>
