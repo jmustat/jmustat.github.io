@@ -19,7 +19,9 @@ sidebar-avatar: /img/Jinjian.jpg   # use absolute URL, seeing it's used in both 
 
 # SNS settings
 RSS: false
-#github_username:    jmustat
+github_username:    jmustat
+researchgate_username: Jinjian-Mu
+linkedin_username: jinjian-mu-029aa9115
 
 
 collections:
