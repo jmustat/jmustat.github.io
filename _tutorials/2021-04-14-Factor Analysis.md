@@ -11,4 +11,4 @@ tags:
 ---
 
 
-{% include_relative factor_analysis.html %}
+{% include factor_analysis.html %}
