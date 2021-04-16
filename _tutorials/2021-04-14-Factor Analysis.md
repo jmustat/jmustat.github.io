@@ -1083,5 +1083,7 @@ semPaths(fit_cfa_5f_v2, whatLabels = "std", residuals = FALSE, sizeMan = 3)
 References
 ----------
 
-<https://cran.r-project.org/web/packages/psych/psych.pdf> <https://stats.idre.ucla.edu/r/seminars/rcfa/> <http://www.di.fc.ul.pt/~jpn/r/factoranalysis/factoranalysis.html>
+<https://cran.r-project.org/web/packages/psych/psych.pdf> 
+<https://stats.idre.ucla.edu/r/seminars/rcfa/> 
+<http://www.di.fc.ul.pt/~jpn/r/factoranalysis/factoranalysis.html>
 
