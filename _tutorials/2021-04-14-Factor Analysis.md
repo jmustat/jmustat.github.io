@@ -9,4 +9,4 @@ tags:	   statistics
 ---
 
 
-{% include_relative factoranalysis.html%}
+{% include_relative factor_analysis.html%}
