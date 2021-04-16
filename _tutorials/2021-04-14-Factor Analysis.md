@@ -2,6 +2,7 @@
 layout:     post   				    
 title:     Factor Analysis in R				
 subtitle:    #副标题
+my_variable: factor_analysis.html
 date:       2021-04-16 			
 author:     Jinjian Mu				
 header-img: 
@@ -10,6 +11,3 @@ tags:
 
 ---
 
-*(This is a practical introduction for Exploratory and Confimatory Factor Analysis in R)*
-
-{% include_relative factor_analysis.html %}
