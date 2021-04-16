@@ -13,15 +13,18 @@ tags:
 Preliminary Work
 ================
 
-Exploratory factor analysis is letting the data tell you what the latent structure could be. Confimatory factor analysis is to verify if the proposed latent structure fits the data well.
+Exploratory factor analysis is letting the data tell you what the latent
+structure could be. Confimatory factor analysis is to verify if the
+proposed latent structure fits the data well.
 
-I will use the data set `bfi` in the `psych` package to illustrate how to perform exploratory factor analysis and confirmatory factor analysis. In the `bfi` data set, the first 25 columns are some self report items, and we will conduct factor analyses on these 25 items.
+I will use the data set `bfi` in the `psych` package to illustrate how
+to perform exploratory factor analysis and confirmatory factor analysis.
+In the `bfi` data set, the first 25 columns are some self report items,
+and we will conduct factor analyses on these 25 items.
 
-``` r
-library(psych)
-data(bfi)
-head(bfi)
-```
+    library(psych)
+    data(bfi)
+    head(bfi)
 
     ##       A1 A2 A3 A4 A5 C1 C2 C3 C4 C5 E1 E2 E3 E4 E5 N1 N2 N3 N4 N5 O1 O2 O3 O4
     ## 61617  2  4  3  4  4  2  3  3  4  4  3  3  3  4  4  3  4  2  2  3  3  6  3  4
@@ -38,11 +41,19 @@ head(bfi)
     ## 61622  3      1        NA  17
     ## 61623  1      2         3  21
 
-In psychometrics, we expect all items are in the same direction, especially for composite scores, so we can sum them up and get a total score. Therefore, we need to check the internal consistency, and we can use Cronbach's *α* to measure internal consistency. The calcualted value below is 0.53, which is not good. Usually, a value greater than 0.7 or 0.8 indicates good internal consistency. After reversing the items that are negatively correlated with the total score using option `check.keys = TRUE`, the calculated value is 0.82 indicating a good internal consistency. We can basically reverse these items, but since all the items are in the range 0-6, we also want to keep the range. In the following, I use 7 minus the original scores as the reversed scores.
+In psychometrics, we expect all items are in the same direction,
+especially for composite scores, so we can sum them up and get a total
+score. Therefore, we need to check the internal consistency, and we can
+use Cronbach's *α* to measure internal consistency. The calcualted value
+below is 0.53, which is not good. Usually, a value greater than 0.7 or
+0.8 indicates good internal consistency. After reversing the items that
+are negatively correlated with the total score using option
+`check.keys = TRUE`, the calculated value is 0.82 indicating a good
+internal consistency. We can basically reverse these items, but since
+all the items are in the range 0-6, we also want to keep the range. In
+the following, I use 7 minus the original scores as the reversed scores.
 
-``` r
-alpha(bfi[,1:25])
-```
+    alpha(bfi[,1:25])
 
     ## Warning in alpha(bfi[, 1:25]): Some items were negatively correlated with the total scale and probably 
     ## should be reversed.  
@@ -146,9 +157,7 @@ alpha(bfi[,1:25])
     ## O4 0.02 0.04 0.06 0.17 0.32 0.39 0.01
     ## O5 0.27 0.32 0.19 0.13 0.07 0.03 0.01
 
-``` r
-alpha(bfi[,1:25], check.keys = TRUE)
-```
+    alpha(bfi[,1:25], check.keys = TRUE)
 
     ## Warning in alpha(bfi[, 1:25], check.keys = TRUE): Some items were negatively correlated with total scale and were automatically reversed.
     ##  This is indicated by a negative sign for the variable name.
@@ -247,19 +256,19 @@ alpha(bfi[,1:25], check.keys = TRUE)
     ## O4 0.02 0.04 0.06 0.17 0.32 0.39 0.01
     ## O5 0.27 0.32 0.19 0.13 0.07 0.03 0.01
 
-``` r
-bfi[, c("A1", "C4", "C5", "E1", "E2", "N1", "N2", "N3", "N4", "N5", "O2", "O4", "O5")] <-
-  7 - bfi[, c("A1", "C4", "C5", "E1", "E2", "N1", "N2", "N3", "N4", "N5", "O2", "O4", "O5")]
-```
+    bfi[, c("A1", "C4", "C5", "E1", "E2", "N1", "N2", "N3", "N4", "N5", "O2", "O4", "O5")] <-
+      7 - bfi[, c("A1", "C4", "C5", "E1", "E2", "N1", "N2", "N3", "N4", "N5", "O2", "O4", "O5")]
 
 Exploratory factor analysis
 ===========================
 
-At first, we want to figure out how many latent factors we need, and we can use the scree plot. The number of eigenvalues great than 1 is the maxinum of the number of factors we should try. For this data set, we should have at most 6 factors. I like to use the `scree.plot` function in the `psy` package for scree plots.
+At first, we want to figure out how many latent factors we need, and we
+can use the scree plot. The number of eigenvalues great than 1 is the
+maxinum of the number of factors we should try. For this data set, we
+should have at most 6 factors. I like to use the `scree.plot` function
+in the `psy` package for scree plots.
 
-``` r
-library(psy)
-```
+    library(psy)
 
     ## 
     ## Attaching package: 'psy'
@@ -268,23 +277,25 @@ library(psy)
     ## 
     ##     wkappa
 
-``` r
-scree.plot(bfi[,1:25])
-```
+    scree.plot(bfi[,1:25])
 
 ![](img/factoranalysis/unnamed-chunk-3-1.png)
 
-We hope 1) the factors can explain enough variance, 2) all items can be well explained, and 3) each item can only be explained by one facotr. For 3), we need to do rotation. There are different types of rotation, and the default oblimin ratation in function `fa` works well. For the four-factor model, some items are not well explained. For example, all of the loadings for item A1 are small. The five-factor model is okay in 3), but it can only explain 41% of the variance. The six-factor model improves a little bit by explaining 3% more, but it is not good in the sense of 3).
+We hope 1) the factors can explain enough variance, 2) all items can be
+well explained, and 3) each item can only be explained by one facotr.
+For 3), we need to do rotation. There are different types of rotation,
+and the default oblimin ratation in function `fa` works well. For the
+four-factor model, some items are not well explained. For example, all
+of the loadings for item A1 are small. The five-factor model is okay in
+3), but it can only explain 41% of the variance. The six-factor model
+improves a little bit by explaining 3% more, but it is not good in the
+sense of 3).
 
-``` r
-fit_efa_4f <- fa(bfi[,1:25], nfactors = 4, rotate = "oblimin")
-```
+    fit_efa_4f <- fa(bfi[,1:25], nfactors = 4, rotate = "oblimin")
 
     ## Loading required namespace: GPArotation
 
-``` r
-fit_efa_4f
-```
+    fit_efa_4f
 
     ## Factor Analysis using method =  minres
     ## Call: fa(r = bfi[, 1:25], nfactors = 4, rotate = "oblimin")
@@ -352,10 +363,8 @@ fit_efa_4f
     ## Multiple R square of scores with factors          0.84 0.84 0.76 0.70
     ## Minimum correlation of possible factor scores     0.68 0.68 0.52 0.40
 
-``` r
-fit_efa_5f <- fa(bfi[,1:25], nfactors = 5, rotate = "oblimin")
-fit_efa_5f
-```
+    fit_efa_5f <- fa(bfi[,1:25], nfactors = 5, rotate = "oblimin")
+    fit_efa_5f
 
     ## Factor Analysis using method =  minres
     ## Call: fa(r = bfi[, 1:25], nfactors = 5, rotate = "oblimin")
@@ -424,10 +433,8 @@ fit_efa_5f
     ## Multiple R square of scores with factors          0.85 0.79 0.77 0.77 0.71
     ## Minimum correlation of possible factor scores     0.70 0.59 0.54 0.54 0.42
 
-``` r
-fit_efa_6f <- fa(bfi[,1:25], nfactors = 6, rotate = "oblimin")
-fit_efa_6f
-```
+    fit_efa_6f <- fa(bfi[,1:25], nfactors = 6, rotate = "oblimin")
+    fit_efa_6f
 
     ## Factor Analysis using method =  minres
     ## Call: fa(r = bfi[, 1:25], nfactors = 6, rotate = "oblimin")
@@ -500,11 +507,13 @@ fit_efa_6f
 Confimatory factor analysis
 ===========================
 
-Based on the results of EFA and the nature of the data, we propose a five-factor model with uncorrelated latent structure, and we want to use CFA to verify the latent structure. `=~` means the latent factor can explain the following items. `f1 ~~ 0*f2 + 0*f3 + 0*f4 + 0*f5` means factor f1 is not correlated to factor f2 - f5.
+Based on the results of EFA and the nature of the data, we propose a
+five-factor model with uncorrelated latent structure, and we want to use
+CFA to verify the latent structure. `=~` means the latent factor can
+explain the following items. `f1 ~~ 0*f2 + 0*f3 + 0*f4 + 0*f5` means
+factor f1 is not correlated to factor f2 - f5.
 
-``` r
-library(lavaan)
-```
+    library(lavaan)
 
     ## This is lavaan 0.6-8
     ## lavaan is FREE software! Please report any bugs.
@@ -516,19 +525,17 @@ library(lavaan)
     ## 
     ##     cor2cov
 
-``` r
-mod_cfa_5f <- "f1 =~ N1 + N2 + N3 + N4 + N5
-               f2 =~ E1 + E2 + E3 + E4 + E5
-               f3 =~ C1 + C2 + C3 + C4 + C5
-               f4 =~ A1 + A2 + A3 + A4 + A5
-               f5 =~ O1 + O2 + O3 + O4 + O5
-               f1 ~~ 0*f2 + 0*f3 + 0*f4 + 0*f5
-               f2 ~~ 0*f3 + 0*f4 + 0*f5
-               f3 ~~ 0*f4 + 0*f5
-               f4 ~~ 0*f5"
-fit_cfa_5f <- cfa(mod_cfa_5f, data = bfi)
-summary(fit_cfa_5f, standardize = TRUE, fit.measures = TRUE, rsquare = TRUE)
-```
+    mod_cfa_5f <- "f1 =~ N1 + N2 + N3 + N4 + N5
+                   f2 =~ E1 + E2 + E3 + E4 + E5
+                   f3 =~ C1 + C2 + C3 + C4 + C5
+                   f4 =~ A1 + A2 + A3 + A4 + A5
+                   f5 =~ O1 + O2 + O3 + O4 + O5
+                   f1 ~~ 0*f2 + 0*f3 + 0*f4 + 0*f5
+                   f2 ~~ 0*f3 + 0*f4 + 0*f5
+                   f3 ~~ 0*f4 + 0*f5
+                   f4 ~~ 0*f5"
+    fit_cfa_5f <- cfa(mod_cfa_5f, data = bfi)
+    summary(fit_cfa_5f, standardize = TRUE, fit.measures = TRUE, rsquare = TRUE)
 
     ## lavaan 0.6-8 ended normally after 53 iterations
     ## 
@@ -693,11 +700,12 @@ summary(fit_cfa_5f, standardize = TRUE, fit.measures = TRUE, rsquare = TRUE)
     ##     O4                0.083
     ##     O5                0.271
 
-According to the model fit indices, the proposed five-factor model is not a good fit to the data. Usually, a CFI &gt; 0.95, a TLI &gt; 0.90, a RMSEA &lt; 0.05, and a SRMR &lt; 0.05 indicate a good fit. We can check the modification indices to see how we can improve the model.
+According to the model fit indices, the proposed five-factor model is
+not a good fit to the data. Usually, a CFI &gt; 0.95, a TLI &gt; 0.90, a
+RMSEA &lt; 0.05, and a SRMR &lt; 0.05 indicate a good fit. We can check
+the modification indices to see how we can improve the model.
 
-``` r
-modificationindices(fit_cfa_5f, sort. = TRUE, minimum.value = 10)
-```
+    modificationindices(fit_cfa_5f, sort. = TRUE, minimum.value = 10)
 
     ##     lhs op rhs      mi    epc sepc.lv sepc.all sepc.nox
     ## 31   f2 ~~  f4 626.628  0.345   0.651    0.651    0.651
@@ -892,21 +900,20 @@ modificationindices(fit_cfa_5f, sort. = TRUE, minimum.value = 10)
     ## 126  f4 =~  N1  10.058  0.144   0.078    0.049    0.049
     ## 137  f4 =~  C2  10.010  0.153   0.082    0.062    0.062
 
-Based on the modification indices, the first option is to correlate factor f2 and factor f4 by `f2 ~~ f4`.
+Based on the modification indices, the first option is to correlate
+factor f2 and factor f4 by `f2 ~~ f4`.
 
-``` r
-mod_cfa_5f_v2 <- "f1 =~ N1 + N2 + N3 + N4 + N5
-                  f2 =~ E1 + E2 + E3 + E4 + E5
-                  f3 =~ C1 + C2 + C3 + C4 + C5
-                  f4 =~ A1 + A2 + A3 + A4 + A5
-                  f5 =~ O1 + O2 + O3 + O4 + O5
-                  f1 ~~ 0*f2 + 0*f3 + 0*f4 + 0*f5
-                  f2 ~~ 0*f3 + f4 + 0*f5
-                  f3 ~~ 0*f4 + 0*f5
-                  f4 ~~ 0*f5"
-fit_cfa_5f_v2 <- cfa(mod_cfa_5f_v2, data = bfi)
-summary(fit_cfa_5f_v2, standardize = TRUE, fit.measures = TRUE, rsquare = TRUE)
-```
+    mod_cfa_5f_v2 <- "f1 =~ N1 + N2 + N3 + N4 + N5
+                      f2 =~ E1 + E2 + E3 + E4 + E5
+                      f3 =~ C1 + C2 + C3 + C4 + C5
+                      f4 =~ A1 + A2 + A3 + A4 + A5
+                      f5 =~ O1 + O2 + O3 + O4 + O5
+                      f1 ~~ 0*f2 + 0*f3 + 0*f4 + 0*f5
+                      f2 ~~ 0*f3 + f4 + 0*f5
+                      f3 ~~ 0*f4 + 0*f5
+                      f4 ~~ 0*f5"
+    fit_cfa_5f_v2 <- cfa(mod_cfa_5f_v2, data = bfi)
+    summary(fit_cfa_5f_v2, standardize = TRUE, fit.measures = TRUE, rsquare = TRUE)
 
     ## lavaan 0.6-8 ended normally after 64 iterations
     ## 
@@ -1071,19 +1078,20 @@ summary(fit_cfa_5f_v2, standardize = TRUE, fit.measures = TRUE, rsquare = TRUE)
     ##     O4                0.083
     ##     O5                0.271
 
-The model fit is still not good. We can continue checking the modification indices. After we get a good model, we usually want to create a diagram to present the latent structure. Here, I just use the second CFA model to show how to generate a diagram.
+The model fit is still not good. We can continue checking the
+modification indices. After we get a good model, we usually want to
+create a diagram to present the latent structure. Here, I just use the
+second CFA model to show how to generate a diagram.
 
-``` r
-library(semPlot)
-semPaths(fit_cfa_5f_v2, whatLabels = "std", residuals = FALSE, sizeMan = 3)
-```
+    library(semPlot)
+    semPaths(fit_cfa_5f_v2, whatLabels = "std", residuals = FALSE, sizeMan = 3)
 
 ![](img/factoranalysis/unnamed-chunk-8-1.png)
 
 References
 ----------
 
-<https://cran.r-project.org/web/packages/psych/psych.pdf> 
-<https://stats.idre.ucla.edu/r/seminars/rcfa/> 
+<https://cran.r-project.org/web/packages/psych/psych.pdf>
+<https://stats.idre.ucla.edu/r/seminars/rcfa/>
 <http://www.di.fc.ul.pt/~jpn/r/factoranalysis/factoranalysis.html>
 
