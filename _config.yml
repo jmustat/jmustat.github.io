@@ -62,17 +62,17 @@ kramdown:
 
 # 评论系统
 # Disqus（https://disqus.com/）
-disqus_username: disqus_MFMG3nVJGa
+#disqus_username: disqus_MFMG3nVJGa
 
 # Gitalk
-#gitalk:
-#  enable: true    #是否开启Gitalk评论
-#  clientID:                           #生成的clientID
-#  clientSecret:    #生成的clientSecret
-#  repo: jmustat.github.io    #仓库名称
-#  owner: jinjianmu    #github用户名
-#  admin: jinjianmu
-#  distractionFreeMode: true #是否启用类似FB的阴影遮罩
+gitalk:
+  enable: true    #是否开启Gitalk评论
+  clientID:                           #生成的clientID
+  clientSecret:    #生成的clientSecret
+  repo: jmustat.github.io    #仓库名称
+  owner: jmustat   #github用户名
+  admin: jinjianmu
+  distractionFreeMode: true #是否启用类似FB的阴影遮罩
 
 
 # 统计
@@ -102,10 +102,10 @@ service-worker: true
 
 
 # Friends
-# friends: [
-#     {
-#        title: "WY",
-#        href: "http://zhengwuyang.com"
+ friends: [
+     {
+        title: "Zhe Wang",
+        href: "http://zhewangdenison.github.io"
 #    },{
 #        title: "简书·BY",
 #        href: "http://www.jianshu.com/u/e71990ada2fd"
@@ -115,5 +115,5 @@ service-worker: true
 #    },{
 #        title: "Apple Developer",
 #        href: "https://developer.apple.com/"
-#    }
-#]
+    }
+]
