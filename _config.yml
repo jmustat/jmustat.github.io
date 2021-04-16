@@ -67,8 +67,8 @@ kramdown:
 # Gitalk
 gitalk:
   enable: true    #是否开启Gitalk评论
-  clientID:                           #生成的clientID
-  clientSecret:    #生成的clientSecret
+  clientID: 4c73b723eb65d369f4af                          #生成的clientID
+  clientSecret: e4dc7360dd1b56e8a73b0052c655741d1036a117   #生成的clientSecret
   repo: jmustat.github.io    #仓库名称
   owner: jmustat   #github用户名
   admin: jinjianmu
