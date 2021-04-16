@@ -71,7 +71,7 @@ gitalk:
   clientSecret: e4dc7360dd1b56e8a73b0052c655741d1036a117   #生成的clientSecret
   repo: jmustat.github.io    #仓库名称
   owner: jmustat   #github用户名
-  admin: jinjianmu
+  admin: jmustat
   distractionFreeMode: true #是否启用类似FB的阴影遮罩
 
 
