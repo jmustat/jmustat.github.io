@@ -66,14 +66,14 @@ disqus_username: disqus_MFMG3nVJGa
 
 
 # Gitalk
-gitalk:
-  enable: true    #是否开启Gitalk评论
-  clientID: 4c73b723eb65d369f4af                          #生成的clientID
-  clientSecret: e4dc7360dd1b56e8a73b0052c655741d1036a117   #生成的clientSecret
-  repo: jmustat.github.io    #仓库名称
-  owner: jmustat   #github用户名
-  admin: jmustat
-  distractionFreeMode: true #是否启用类似FB的阴影遮罩
+#gitalk:
+#  enable: true    #是否开启Gitalk评论
+#  clientID: 4c73b723eb65d369f4af                          #生成的clientID
+#  clientSecret: e4dc7360dd1b56e8a73b0052c655741d1036a117   #生成的clientSecret
+#  repo: jmustat.github.io    #仓库名称
+#  owner: jmustat   #github用户名
+#  admin: jmustat
+#  distractionFreeMode: true #是否启用类似FB的阴影遮罩
 
 
 # 统计
@@ -106,6 +106,6 @@ service-worker: true
  friends: [
      {
         title: "Zhe Wang",
-        href: "http://zhewangdenison.github.io"
+        href: "http://zhewangdenison.github.io/"
     }
 ]
