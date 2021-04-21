@@ -103,9 +103,9 @@ service-worker: true
 
 
 # Friends
-friends: [
-     {
-        title: "Zhe Wang",
-        href: "http://zhewangdenison.github.io/"
-     }
-]
+#friends: [
+#     {
+#        title: "Zhe Wang",
+#        href: "http://zhewangdenison.github.io/"
+#     }
+#]
