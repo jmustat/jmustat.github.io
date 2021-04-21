@@ -19,9 +19,9 @@ sidebar-avatar: /img/Jinjian.jpg   # use absolute URL, seeing it's used in both 
 
 # SNS settings
 RSS: false
-github_username: jmustat
-researchgate_username: Jinjian-Mu
-linkedin_username: jinjian-mu-029aa9115
+github_username:  jmustat
+researchgate_username:  Jinjian-Mu
+linkedin_username:  jinjian-mu-029aa9115
 
 
 collections:
@@ -62,7 +62,7 @@ kramdown:
 
 # 评论系统
 # Disqus（https://disqus.com/）
-disqus_username: disqus_MFMG3nVJGa
+disqus_username:  disqus_MFMG3nVJGa
 
 
 # Gitalk
@@ -83,7 +83,7 @@ disqus_username: disqus_MFMG3nVJGa
 # ba_track_id:
 
 # Google Analytics
- ga_track_id: G-S6SDF5D3NR         # Format: UA-xxxxxx-xx
+ ga_track_id: 'G-S6SDF5D3NR'        # Format: UA-xxxxxx-xx
  ga_domain: jinjian-mu.com              # 默认的是 auto, 这里我是自定义了的域名，你如果没有自己的域名，需要改成auto
 
 
@@ -103,9 +103,9 @@ service-worker: true
 
 
 # Friends
- friends: [
+friends: [
      {
         title: "Zhe Wang",
         href: "http://zhewangdenison.github.io/"
-    }
+     }
 ]
