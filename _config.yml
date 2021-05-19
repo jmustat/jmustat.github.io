@@ -62,18 +62,18 @@ kramdown:
 
 # 评论系统
 # Disqus（https://disqus.com/）
- disqus_username:  chaoranhu
+# disqus_username:  chaoranhu
 
 
 # Gitalk
-#gitalk:
-#  enable: true    #是否开启Gitalk评论
-#  clientID: ed8049352936147c0472                         #生成的clientID
-#  clientSecret: dbecd38be7c81f6d0b37ae4fceded84753de8f26   #生成的clientSecret
-#  repo: webcomments    #仓库名称
-#  owner: jmustat   #github用户名
-#  admin: jmustat
-#  distractionFreeMode: true #是否启用类似FB的阴影遮罩
+gitalk:
+  enable: true    #是否开启Gitalk评论
+  clientID: ed8049352936147c0472                         #生成的clientID
+  clientSecret: dbecd38be7c81f6d0b37ae4fceded84753de8f26   #生成的clientSecret
+  repo: webcomments    #仓库名称
+  owner: jmustat   #github用户名
+  admin: jmustat
+  distractionFreeMode: true #是否启用类似FB的阴影遮罩
 
 
 # 统计
