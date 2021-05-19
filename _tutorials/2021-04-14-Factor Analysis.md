@@ -1,5 +1,5 @@
 ---
-layout:     post   				    
+layout:     post2   				    
 title:     Factor Analysis in R				
 date:       2021-04-16 			
 author:     Jinjian Mu				
